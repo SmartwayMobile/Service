@@ -17,6 +17,7 @@
     "@turf/point-to-line-distance": "^5.0.4",
     "axios": "^0.17.1",
     "dotenv": "^4.0.0",
+    "firebase-admin": "^5.5.1",
     "turf": "^3.0.14"
   }
 }
