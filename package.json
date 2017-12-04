@@ -10,7 +10,13 @@
   "license": "ISC",
   "dependencies": {
     "@google/maps": "^0.4.5",
+    "@mapbox/polyline": "^0.2.0",
+    "@turf/boolean-crosses": "^5.0.4",
+    "@turf/boolean-point-on-line": "^5.0.4",
+    "@turf/helpers": "^5.0.4",
+    "@turf/point-to-line-distance": "^5.0.4",
     "axios": "^0.17.1",
-    "dotenv": "^4.0.0"
+    "dotenv": "^4.0.0",
+    "turf": "^3.0.14"
   }
 }
