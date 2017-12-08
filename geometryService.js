@@ -1,4 +1,6 @@
-const KEY = process.env.GOOGLE_API_KEY;
+const env = require('dotenv');
+env.config();
+const KEY = 'AIzaSyDH47V1om25P0KbWWvDIl2TXMBqpUkA8iE'; // process.env.GOOGLE_API_KEY;
 const turf = require('turf');
 const { lineString } = require('@turf/helpers');
 const pointToLineDistance = require('@turf/point-to-line-distance');
@@ -9,9 +11,9 @@ const mapboxPolyline = require('@mapbox/polyline');
 
 exports.getRouteFromLocations = (origin, destination) => {
     return new Promise((resolve, reject) => {
-        googleMapsClient.distanceMatrix({
-            origins: [origin],
-            destinations: [destination]
+        googleMapsClient.directions({
+            origin: [origin],
+            destination: [destination]
         }, (err, response) => {
             !err ? resolve(response) : reject(err);
         });
@@ -23,8 +25,8 @@ exports.isPointOnLine = (point, encodedPolyline) => {
     return booleanPointOnLine(point, polyline);
 };
 
-exports.isPointCloseToLine = (point, encodedPolyline, threshhold) => {
-    const polyline = mapboxPolyline.decode(encodedPolyline);
+exports.isPointCloseToLine = (point, polyline, threshhold) => {
+    //const polyline = mapboxPolyline.decode(encodedPolyline);
     const distance = pointToLineDistance(point, polyline, { units: 'miles' });
     return distance <= threshhold;
 };
